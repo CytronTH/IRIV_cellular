@@ -19,5 +19,6 @@ git clone https://github.com/turmary/linux-ppp-scripts.git
 echo "Prepare linux-ppp-scripts files complete!"
 
 wget https://github.com/CytronTH/IRIV_cellular/blob/main/connect_internet_ec25.sh
+sudo chmod +x connect_internet_ec25.sh
 
 echo "Enable mPCIe and prepare dialing scripts files complete!"
