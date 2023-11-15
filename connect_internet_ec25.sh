@@ -29,7 +29,7 @@ echo "Waiting for dailing..."
 sleep 20  # This will pause the script for 20 seconds
 echo "Dailing done"
 
-sudo add default gw 10.10.10.64
+sudo route add default gw 10.10.10.64
 
 echo "Cellular connection is now ready to use"
 
