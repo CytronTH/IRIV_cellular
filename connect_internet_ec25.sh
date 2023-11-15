@@ -23,13 +23,27 @@ cd /
 
 cd /usr/local/bin/ec25_cellular_module/linux-ppp-scripts
 
-echo "Waiting for dailing..."
-sudo ./quectel-pppd.sh
-echo "Dailing done"
+echo "Waiting for dialing..."
+# Run the script in the background to capture its output
+sudo ./quectel-pppd.sh > output.log &
 
-sudo route add default gw 10.64.64.64
-
-echo "Cellular connection is now ready to use"
+# Monitor the output for a specific message using grep
+while :
+do
+    if grep -q "IPV6CP: timeout sending Config-Requests" output.log; then
+        echo "Detected specific sentence. Proceeding with the next command."
+        # Perform the next action or command here
+        # For example, toggle Ctrl+C and run the next command
+        # (replace the sleep with your actual command)
+        pkill -INT -f "quectel-pppd.sh"
+        sleep 2  # Example: wait for 2 seconds before running the next command
+        # Run the next command here
+        sudo route add default gw 10.64.64.64
+        echo "Cellular connection is now ready to use"
+        break  # Exit the loop
+    fi
+    sleep 1  # Check every second
+done
 
 exit
 EOF
