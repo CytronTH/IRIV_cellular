@@ -23,10 +23,8 @@ cd /
 
 cd /usr/local/bin/ec25_cellular_module/linux-ppp-scripts
 
-sudo ./quectel-pppd.sh
-
 echo "Waiting for dailing..."
-sleep 20  # This will pause the script for 20 seconds
+sudo ./quectel-pppd.sh
 echo "Dailing done"
 
 sudo route add default gw 10.64.64.64
