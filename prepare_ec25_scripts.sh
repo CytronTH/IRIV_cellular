@@ -8,7 +8,7 @@ if [ $(id -u) -ne 0 ]; then
     exit 1
 fi
 
-
+cd /
 # create folder for scripts.
 cd /usr/local/bin
 sudo mkdir ec25_cellular_module
@@ -16,4 +16,8 @@ cd ec25_cellular_module
 
 git clone https://github.com/turmary/linux-ppp-scripts.git
 
-echo "Prepare dailing scripts complete!"
+echo "Prepare linux-ppp-scripts files complete!"
+
+wget https://github.com/CytronTH/IRIV_cellular/blob/main/connect_internet_ec25.sh
+
+echo "Enable mPCIe and prepare dialing scripts files complete!"
