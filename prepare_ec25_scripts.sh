@@ -15,3 +15,5 @@ sudo mkdir ec25_cellular_module
 cd ec25_cellular_module
 
 git clone https://github.com/turmary/linux-ppp-scripts.git
+
+echo "Prepare dailing scripts complete!"
